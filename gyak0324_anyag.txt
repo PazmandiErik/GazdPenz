@@ -1,0 +1,63 @@
+===== [ Multinomiális eloszlás ] =====
+
+Legyen A_1, A_2, ... , A_n teljes eseményrendszer.
+P = P(A_1) + P(A_2) + ... P(A_n)
+
+Ismételjük meg a kisérleteket egymástól függetlenül.
+Jelölje X_i az A_i esemény bekövetkezéséinek a számát
+
+Ekkor az X_1, X_2, ... , X_r együttes eloszlása 
+	P(X_1 = k_1, X_2 = k_2, ... , X_r = k_r) = ((N!) / (k_1! * k_2! * ... * k_r!)) * (p_1)^k_1 * (p_2)^k_2 * ... * (p_r)^k_r , ahol k_1 + k_2 + ... + k_r = N
+
+Állítás:
+-----
+	Legyen X_1, X_2, ... , X_r multinomiális eloszlású N és p_1, p_2, ... , p_r paraméterekkel.
+	Ekkor a SUM|j=1|r((x_j, N_p_j)^2/(N_p_j)) valószínűségi változó N -> INFINITY esetén a (X_(r-i))^2 eloszláshoz konvergál.
+
+Példa: Tiszta illeszkedésvizsgálat
+-----
+	
+	A_1, A_2, ... A_n teljes eseményrendszer
+	Legyenek p_1 < 0, p_2 > 0, ... p_n >0 adott számok úgy, hogy
+
+	SZUMMA i = 1 tol r-ig, ezeket a p-ket amiket felírtunk feltételezzük h az összegük 1, azaz valószínűségi eloszlás.
+
+	Döntsünk a H_0 : P(A_i) = p_i	,	i= 1,2,...,r nullhipotézisről!
+
+	Képezzük a következő statisztikát:
+		X^2 = SZUMMA i=n-tol r-ig (k_i - N*p_i)^2 / (N*p_i) 
+
+
+Feladat megoldás:
+-----
+SZUMMA 1-tol n-ig (k_i - N*(p_i))^2 / (N*(p_i)) 			// Ebbe kell behelyettesíteni
+N = 600
+p_1 = p_2 = p_3 = p_4 = p_5 = p_6 = 1/6
+
+Behelyettesítve:
+	(83-600*1/6)^2 		/ 	600*1/6 +
+	+ (91-600*1/6)^2 	/ 	600*1/6 +
+	+ (122-600*1/6)^2 	/ 	600*1/6 +
+	+ (107-600*1/6)^2 	/ 	600*1/6 +
+	+ (74-600*1/6)^2 	/	600*1/6 +
+	+ (123-600*1/6)^2 	/ 	600*1/6 =
+
+	= (83-100)^2 		/ 	100 +
+	+ (91-100)^2 		/ 	100 +
+	+ (122-100)^2 		/ 	100 +
+	+ (107-100)^2 		/ 	100 +
+	+ (74-100)^2 		/ 	100 +
+	+ (123-100)^2 		/ 	100 =
+
+	= -17^2	 		/ 	100 +
+	+ -9^2 			/ 	100 +
+	+ 22^2 			/ 	100 +
+	+ 7^2 			/ 	100 +
+	+ -26^2			/	100 +
+	+ 23^2			/	100 =
+
+	= (289 + 81 + 484 + 49 + 676 + 529) / 100 = 2108 / 100 = 21.08
+
+Most táblázatot kell megnézni (khí négyzet próba táblázat)
+Szabadsági fok: 5 	// 6-1 miatt
+"Döntsük el 95%-os biztossággal." : 11.07 - Nem fogadjuk el mert felette van. => Nem szabályos a dobókocka
