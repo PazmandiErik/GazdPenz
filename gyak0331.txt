@@ -1,0 +1,105 @@
+Függetlenségvizsgálat
+-----
+Legyenek A_1, A_2, ..., A_r és B_1, B_2, ... B_s teljes eseményrendszerek!
+Azt próbáljuk eldönteni, hogy ezek az eseményrendszerek függetlenek-e egymástól.
+
+H_0: P(A_i ⋂ B_j) = P(A_i) * P(B_j),
+i= 1..r
+j= 1..s
+
+Amenyiben a két teljes eseményrendszerhez tartozó valószínűségek ismertek, akkor tiszta illeszkedésvizsgálatot
+kapunk. Ebben az esetben 
+H_0: P(A_i ⋂ B_j) = β_i  * q_j
+i = 1..r
+j = 1..s
+
+p_i = P(A_i), q_j = P(B_j) előre megadott számok. Mivel itt
+	{ A_i ⋂ B_j | i=1..r, j=1..s } egy teljes esményrendszer és 
+	{ p_i * q_j | i=1..r, j=1..s } ismertek 
+	=> alkalmazható a tiszta illeszkedésvizsgált
+
+========== [ "Most jön az érdemi része..." ] ==========
+
+Azonban sokkal realisztikusabb az amikor a p_i (i=1..r) és q_j (j=1..s) nem ismertek,
+így azokat a mintából kell megbecsülni.
+
+Hajtsuk végre a két teljes eseményrendszereket tartalmazó kísérletet N-szer egymástól függetlenül.
+Jelölje K_ij az A_i ⋂ B_j esemény gyakoriságát.
+
+Elkészítjük a kontingencia táblázatot. (Dobókockával dobunk és érmét feldobunk.
+					//	N darab kisérletet végzünk.
+					//	Σ sor és oszlop - peremgyakoriságok
+
+	B_1,	B_2,	...	B_s	Σ
+
+A_1	K_1,1	K_1,2	...	K_1,s	K_1,•
+
+A_2	K_2,1	K_2,2	...	K_2,s	K_2,•
+
+...	...	...	...	...	...
+
+A_r	K_r,1	K_r,2	...	K_r,s	K_r,•
+
+Σ	K_•,1	K_•,2	...	K_•,s	N
+
+========== [ "Még nem vagyunk meg, mert más is szükséges" ] ==========
+
+A peremeken található gyakoriságok: Oszlopokat illetve sorokat összegzünk a kontingencia táblázatból.
+	k_i,• = Σ [i = 1 -> s] k_i,j (= A_i események gyakorisága)
+	k_•,j = Σ [i = 1 -> r] k_i,j (= B_j események gyakorisága)
+
+Az események ismeretlen valószínűségeit a gykorisággal becsüljük.
+	p_i = P(A_i) becslése: (k_i,•) / (N)
+	q_j = P(B_j) becslése: (k_•,j) / (N)
+
+Így a Χ^2 (Khí) statisztikája:
+	Σ [i = 1 -> r] Σ [j = 1 -> s] (k_ij - ((k_ji * k_ij) / (N)))^2 / ((k_ji  * k_ij) / (N))
+
+Eloszlása: Χ^2_((r-1)*(s-1))
+
+Ha a táblázatbeli értéke nagyobb akkor eldobjuk, egyébként elfogadjuk.
+
+
+===== [ FELADAT ] =====
+A hajszín független-e a szemszíntől?
+
+		Szőke haj	Barna haj	Fekete haj
+
+Kék szem	42		28		3
+
+Barna szem	17		89		21
+
+
+// 1. Lépés: Feltöltjük a peremgyakoriságokat.
+
+		Szőke haj	Barna haj	Fekete haj	Σ
+
+Kék szem	42		28		3		173
+
+Barna szem	17		89		21		127
+
+Σ		59		117		24		200
+
+// 2. Lépés: Elkészítsük el a statisztikát
+
+Χ^2 (Khí) =
+	(42 - 21.54)^2 / 21.54 		+ 	(28 - 42.31)^2 / 42.31 		+ 	(3 - 8.76)^2 / 8.76 		+ 
+	(17 - ?)^2 / ? 			+ 	(89 - 74.30)^2 / 74.30 		+ 	(21 - 15.24)^2 / 15.24 		=	49.11
+
+// 3. Lépés: Táblázatból kikeressük, hogy mennyi a szabadságfoka (r-1) * (s-1)
+
+	(Χ^2_((r-1)*(s-1))) = 2
+	Táblázatban (2-tes szabadsági foknál) 5.99 => ELUTASÍTJUK mert jóval nagyobb az érték (49.11 > 5.99)
+
+========== [ "Általában 95-tel szoktunk dolgozni"  ] ==========
+
+
+
+
+
+
+
+
+
+
+
