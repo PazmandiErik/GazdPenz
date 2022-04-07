@@ -1,11 +1,11 @@
 # ===== [ 1. Feladat ] =====
 # 
-#	Állapítsuk meg, hogy a dobókocka szabályos-e.
-#	Jelölje A_i azt, hogy i-est dobunk (i=1,2,3,4,5,6). Ekkor
+#	ÃllapÃ­tsuk meg, hogy a dobÃ³kocka szabÃ¡lyos-e.
+#	JelÃ¶lje A_i azt, hogy i-est dobunk (i=1,2,3,4,5,6). Ekkor
 #
-#	(Nullhipotézis) H_0 : P(A_i) = 1/6 (i=1,2,3,4,5,6)
+#	(NullhipotÃ©zis) H_0 : P(A_i) = 1/6 (i=1,2,3,4,5,6)
 #
-#	A kocka 600-szori feldobásakor a következõk adódtak:
+#	A kocka 600-szori feldobÃ¡sakor a kÃ¶vetkezÅ‘k adÃ³dtak:
 #	k_1 = 83
 #	k_2 = 91
 #	k_3 =	122
