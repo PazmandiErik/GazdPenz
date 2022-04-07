@@ -41,7 +41,7 @@ hessian=TRUE,iterlim=1000)
 
 cauchy$estimate
 
-#Robusztus megold·s (cauchy)
+#Robusztus megold√°s (cauchy)
 
 psi=function(x){return(atan(x)/pi)}
 
@@ -53,7 +53,7 @@ while(abs(s-s2)>eps){
 }
 print(i);print(T);print(s);
 
-#Robosztus megold·s(weibull)
+#Robosztus megold√°s(weibull)
 
 set.seed(139)
 xi=rweibull(1000,shape=1.7,scale=200)
