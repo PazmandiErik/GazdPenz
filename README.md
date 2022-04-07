@@ -1,2 +1,4 @@
-# GazdPenz
-Gyakorlati anyagok Gazdasági és Pénzügyi modellek 2022. tavasz ME
+# Gazdasági és Pénzügyi Modellek
+Miskolci Egyetem
+Gyakorlati anyagok
+2022. tavasz
