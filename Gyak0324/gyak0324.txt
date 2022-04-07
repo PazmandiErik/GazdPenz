@@ -1,0 +1,67 @@
+Multinomiális Elosztás
+
+Legyen A1,A2,....An egy teljes eseményrendszer
+
+Pi= P(Ai) i=1,...,e.
+
+Ekkor az (X1,X2,...Xn) együttes eloszlás 
+
+P(X1=k1,X2=k2,...Xr=kr)=N!/(k1!*k2!*...*kr!)*(P1^k1)*(P2^k2)*....*(Pr^kr)*
+AHOL k1+k2+...+kr=N
+
+Állítás: Legyen X1,X2,....,Xr Multinomiális elosztású N és p1,p2,...,pr paraméterekkel
+
+(SUM j=1)(Xj-Npj)^2/Npj
+Valószínűségi változó N-->végtelen  esetén a X^2 alsóindex(r-1) eloszláshoz konvergál
+
+Példa: 
+Tiszta Illeszkedésvizsgálat 
+A1,A2....,An teljes eseményrendszer
+
+Legyenek p1>0,p2>0,....pr>0 adott számok úgy , hogy SUM(i=1 tol r ig ) pi=1 (feltételezzük, hogy az összegük egy ,azaz velószínűségi elpszlás)
+Döntsünk a H0:P(Ai)=pi, i=1,2,...,r nullhipotézis
+
+Képezzük a következő statisztikát : 
+	X^2=SUM(i=1 r ig)((ki-N*pi)^2)/N*pi 
+Ha fennáll akkor X^2 eloszlása az X^2r-1
+
+#Dobókockás feladat
+#leírás :
+#	Állapítsuk meg, hogy szabályos e a dobókocka. 
+#	Jelölje Ai azt, hogy i-est dobtunk (i=1,2,3,4,5,6)
+#	Nullhipotézis H0 : P(Ai) = (1/6)  i=(1,2,3,4,5,6)
+# A kockát 600x feldobtuk.
+#
+#	k1=83
+#	k2=91
+#	k3=122
+#	k4=107
+#	k5=74
+#	k6=123
+# SUM(i=1 r ig)((ki-N*pi)^2)/N*pi 
+# N=600 p1=p2=p3=p4=p5=p6=(1/6)
+# Behelyettesítünk a képletbe, a ki értékeket. 
+#  (83-600*(1/6)^2	/	600*(1/6)+
+# + (91-600*(1/6)^2	/	600*(1/6)+
+# + (122-600*(1/6)^2	/	600*(1/6)+
+# + (107-600*(1/6)^2	/	600*(1/6)+
+# + (74-600*(1/6)^2	/	600*(1/6)+
+# + (123-600*(1/6)^2	/	600*(1/6)=
+#
+# + (83-100)^2		/	100+
+# + (91-100)^2		/	100+
+# + (112-100)^2		/	100+
+# + (107-100)^2		/	100+
+# + (74-100)^2		/	100+
+# + (123-100)^2		/	100=
+#
+# = -17^2		/	100+
+# = -9^2		/	100+
+# = 22^2		/	100+
+# = 7^2			/	100+
+# = -26^2		/	100+
+# = 23^2		/	100+
+#
+# =(289+81+484+49+676+529)/100=2108/100=21,08
+
+
